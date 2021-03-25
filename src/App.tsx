@@ -4,6 +4,7 @@ import { Dashboard } from './components/Dashboard';
 import Modal from 'react-modal';
 import { useState } from 'react';
 
+Modal.setAppElement('#root');
 
 function App() {
 
