@@ -19,15 +19,16 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
   const [type, setType] = useState('deposit');
 
   function handleCreateNewTransaction(event: FormEvent) {
-    event.preventDefault();
+    event.preventDefault()
 
     const data = {
       title,
-      value,
+      amount: value,
       category,
-      type
+      type,
+      createdAt: new Date()
     };
-
+    
     api.post('/transactions', data)
   }
 
@@ -85,11 +86,11 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
 
         <input 
           placeholder='Categoria'
-          value={value}
+          value={category}
           onChange={event => setCategory(event.target.value)}
         />
 
-        <button type='submit' >
+        <button type="submit" >
           Cadastrar
         </button>
 
